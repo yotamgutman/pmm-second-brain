@@ -1,0 +1,18 @@
+# --- Core ---
+chromadb>=0.5
+pyyaml>=6.0
+python-dotenv>=1.0
+
+# --- Embeddings (EMBEDDING_PROVIDER=local, the default) ---
+# Runs offline after the model is downloaded once from Hugging Face.
+# No API key required.
+sentence-transformers>=2.7
+
+# --- LLM for the PMM agent (Phase 3) ---
+anthropic>=0.40
+
+# --- UI (Phase 3) ---
+streamlit>=1.35
+
+# --- Dev / tests ---
+pytest>=8.0
