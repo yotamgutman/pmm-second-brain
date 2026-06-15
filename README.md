@@ -1,3 +1,5 @@
+![PMM Second Brain](pmm_second_brain_linkedin_thumbnail.png)
+
 # 🧠 PMM Second Brain
 
 **An AI agent that turns a company's internal knowledge into product marketing assets — and flags when external messaging drifts from internal reality.**
