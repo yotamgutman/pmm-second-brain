@@ -2,7 +2,8 @@
 
 **An AI agent that turns a company's internal knowledge into product marketing assets — and flags when external messaging drifts from internal reality.**
 
-[!\[tests](https://github.com/yotamgutman/pmm-second-brain/actions/workflows/tests.yml/badge.svg)](https://github.com/<your-username>/pmm-second-brain/actions/workflows/tests.yml)
+![tests](https://github.com/yotamgutman/pmm-second-brain/actions/workflows/tests.yml/badge.svg)
+
 
 \---
 
