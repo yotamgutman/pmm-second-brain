@@ -1,0 +1,12 @@
+# generated index — rebuild locally with: python -m ingest.build_index
+chroma_db/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# environment
+.env
