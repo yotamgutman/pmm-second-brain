@@ -49,7 +49,7 @@ This repo builds Lane 3 end-to-end for a fictional SaaS company, **FlowPilot** (
 ```mermaid
 flowchart TD
     V\["Obsidian Vault<br/>(vault/ — markdown + \[\[wikilinks]])"] --> P\["ingest/parse\_vault.py<br/>chunk by heading, extract metadata"]
-    P --> I\["ingest/build\_index.py<br/>embed + index"]
+    P --> I\["ingest/build_index.py<br/>embed + index"]
     I --> C\[("Chroma vector store")]
     C --> R\["agent/retrieval.py"]
     R --> T\["agent/tools.py<br/>6 PMM asset generators"]
@@ -75,7 +75,7 @@ python -m venv venv \&\& source venv/bin/activate
 pip install -r requirements.txt
 
 cp .env.example .env
-python -m ingest.build\_index   # builds the vector index from vault/
+python -m ingest.build_index   # builds the vector index from vault/
 
 streamlit run agent/app.py
 ```
@@ -144,7 +144,7 @@ pmm-second-brain/
 ├── ingest/
 │   ├── parse\_vault.py              # walk vault, chunk by heading, extract metadata
 │   ├── embeddings.py               # pluggable embedding fn: local | openai | hash
-│   └── build\_index.py              # build/query the Chroma index
+│   └── build_index.py              # build/query the Chroma index
 ├── agent/
 │   ├── llm.py                      # provider-agnostic JSON completion: anthropic | openai | mock
 │   ├── retrieval.py                # retrieval helpers over the vector index
@@ -179,7 +179,7 @@ Every output includes a **Sources** footer naming the exact vault files used —
 ## Testing \& CI
 
 ```bash
-EMBEDDING\_PROVIDER=hash LLM\_PROVIDER=mock pytest tests/ -v
+EMBEDDING\_PROVIDER=hash LLM\_PROVIDER=mock python -m pytest tests/ -v
 ```
 
 11 tests cover the full pipeline — vault parsing, chunking, wikilink handling, indexing, metadata-filtered retrieval, and all six agent tools (correct sources cited, correct schema shape, drift checker actually flags the planted issue). CI runs this on every push with no API keys or model downloads, using the dependency-free `hash` embedding and `mock` LLM provider.
@@ -206,4 +206,6 @@ Possible extensions:
 * Add a scheduled "regenerate on cadence" script, simulating the PMM agent running on its own cadence rather than on demand.
 * Local-only mode (local embeddings + a local LLM via Ollama) for a fully offline, zero-API-key demo with real generation.
 * Expand "Ask the Brain" into a multi-turn chat interface.
+
+
 
