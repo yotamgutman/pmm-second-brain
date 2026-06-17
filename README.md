@@ -7,7 +7,7 @@
 ![tests](https://github.com/yotamgutman/pmm-second-brain/actions/workflows/tests.yml/badge.svg)
 
 
-\---
+---
 
 ## The idea
 
@@ -42,7 +42,7 @@ flowchart LR
 
 This repo builds Lane 3 end-to-end for a fictional SaaS company, **FlowPilot** (a workflow automation platform for ops teams), with two fictional competitors (**OpsChain**, enterprise/compliance-focused, and **Routely**, low-cost/SMB) and one recent feature launch (**AutoSync**) that ties the whole dataset together.
 
-\---
+---
 
 ## How it works
 
@@ -63,7 +63,7 @@ flowchart TD
 * **`agent/`** retrieves relevant chunks for each task, fills a prompt template, and asks an LLM for structured JSON — which gets rendered to markdown with a "Sources" footer citing exactly which vault files were used.
 * **`agent/app.py`** is a Streamlit UI exposing all six tools.
 
-\---
+---
 
 ## Quickstart
 
@@ -113,7 +113,7 @@ python -m agent.cli drift-check
 
 Add `--mock` to any command to force demo-mode generation.
 
-\---
+---
 
 ## The headline feature: messaging drift detection
 
@@ -128,7 +128,7 @@ The external landing page copy (`vault/external/current-landing-page.md`) was de
 
 This is the core "Lane 3" pitch in miniature: the agent isn't scanning the outside world — it's comparing the company's own external messaging against its own internal truth, and catching a gap a busy marketing team plausibly missed for weeks.
 
-\---
+---
 
 ## Repo structure
 
@@ -159,7 +159,7 @@ pmm-second-brain/
 └── .env.example
 ```
 
-\---
+---
 
 ## The six tools
 
@@ -174,7 +174,7 @@ pmm-second-brain/
 
 Every output includes a **Sources** footer naming the exact vault files used — the point isn't just "AI writes marketing copy," it's "AI writes marketing copy *and shows its work*."
 
-\---
+---
 
 ## Testing \& CI
 
@@ -184,7 +184,7 @@ EMBEDDING\_PROVIDER=hash LLM\_PROVIDER=mock pytest tests/ -v
 
 11 tests cover the full pipeline — vault parsing, chunking, wikilink handling, indexing, metadata-filtered retrieval, and all six agent tools (correct sources cited, correct schema shape, drift checker actually flags the planted issue). CI runs this on every push with no API keys or model downloads, using the dependency-free `hash` embedding and `mock` LLM provider.
 
-\---
+---
 
 ## What this project demonstrates
 
@@ -194,7 +194,7 @@ EMBEDDING\_PROVIDER=hash LLM\_PROVIDER=mock pytest tests/ -v
 * **Product thinking applied to AI** — the drift checker is a feature *idea*, grounded in a realistic internal-comms scenario (a Slack thread where the to-do gets dropped), not just a RAG tech demo.
 * **Engineering practices** — pluggable providers (local/OpenAI/Anthropic/mock embeddings and LLMs), a test suite that runs without secrets, CI, and a CLI for debugging before building UI.
 
-\---
+---
 
 ## Limitations \& possible extensions
 
